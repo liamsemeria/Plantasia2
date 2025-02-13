@@ -1,0 +1,49 @@
+control flow:
+how to bring multiple lines into a branch?
+lines to the right can be brought in
+|  |
+?[ |
+|<*|
+]
+
+maybe can bring anything down
+no instructions between the brackets execute if false
+prints 5,4,3,2,1
+
+|  |<<5
+|  |   |<<1
+|  :[  |
+|  |   |
+|  |   |#>|
+|  |   |<<|
+|  |<_-|
+|  ]
+|  .
+probably will need to do something for else (like wither and dead)
+otherwise, there would be no way to do else besides making a copy of the compared value
+
+what happens when a stack gets killed during a branch? need a way to determine the lifespan of stacks
+if left untouched, the it could be hard to track what stacks are alive based on the ast. killing a stack during a loop would be bad.
+
+custom error type: what phase it was, what line the error is, what error it is
+
+
+PLANTASIA TO LLVM IR 
+map stacks to kind of virtual registers
+
+problems with mapping:
+    propagation, values getting deleted during an operation
+
+make "shitty" normal IR that gets optimized through copy propagation
+    by turning props and pops into moves, the stacks no longer need to exist and it just looks like suboptimal IR
+
+pop 5, b0
+pop 1, c0
+br b0, loop, loop_end
+loop:
+    prop c0, d0
+    pop d0, c1
+    sub c1, b0
+    br b0, loop, loop_end
+loop_end:
+    ret b0
