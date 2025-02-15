@@ -18,7 +18,7 @@ pub fn seperate(line: &Vec<Token>) -> Result<(Vec<u64>,Vec<Token>), Box<dyn Erro
             alive_stacks.push(*l)
         }
         // stacks being used for a branch condition ore return are also alive
-        if let Token::IF(l) | Token::LOOP(l) | Token::RETURN(l) = &token { alive_stacks.push(*l) }
+        if let Token::IF(l) | Token::LOOP(l) | Token::RETURN(l) | Token::INPUT(l) = &token { alive_stacks.push(*l) }
 
         // seperate instruction tokens from non-instruction tokens
         match token {
@@ -57,7 +57,7 @@ pub fn seperate(line: &Vec<Token>) -> Result<(Vec<u64>,Vec<Token>), Box<dyn Erro
                 instruction_tokens.push(token.clone());
                 instruction_built = true;
             }
-            Token::RETURN(_) => {
+            Token::RETURN(_) | Token::INPUT(_) => {
                 instruction_tokens.push(token.clone());
                 instruction_built = true;
             },

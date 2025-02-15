@@ -87,6 +87,9 @@ pub fn parse( program: &mut std::slice::Iter<'_, Vec<Token>, >, body: &mut Vec<I
                     Token::RETURN(s) => {
                         inst_result = Ok( Inst{alive_stacks: alive_stacks, statement: Statement::Return{src: s}})
                     }
+                    Token::INPUT(d) => {
+                        inst_result = Ok( Inst{alive_stacks: alive_stacks, statement: Statement::Input{dest: d}})
+                    }
                     _ => {}
                 }
             }

@@ -11,6 +11,7 @@ pub enum Statement {
     If{comparison: u64, body: Vec<Inst>},
     While{comparison: u64, body: Vec<Inst>},
     Return{src: u64},
+    Input{dest: u64},
     None
 }
 
@@ -48,5 +49,6 @@ pub enum Token {
     LOOP(u64),
     BRACKETOPEN(u64),
     BRACKETCLOSE(u64),
-    RETURN(u64)
+    RETURN(u64),
+    INPUT(u64)
 }
