@@ -24,8 +24,9 @@ The operations in an instruction are as follows:\
 
 Some other things:\
 `.` is the return instruction that returns its entire stack.\
-`$` is the input stack that can be specified while running the interpreter.
-
+`$` is the input stack that can be specified while running the interpreter.\
+`_` is a character that gets ignored by the lexer so you can use it for readability purposes.\
+';' is for comments it looks bad but // and # felt weird
 
 ### Control flow
 

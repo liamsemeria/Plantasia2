@@ -29,6 +29,8 @@ pub fn lex(file_text: &str) -> Vec<Vec<Token>> {
                     ']' => v.push(Token::BRACKETCLOSE(i.try_into().unwrap())),
                     '.' => v.push(Token::RETURN(i.try_into().unwrap())),
                     '$' => v.push(Token::INPUT(i.try_into().unwrap())),
+                    '_' =>(),
+                    ';' => continue,
                     _ => ()
                 }
             }
