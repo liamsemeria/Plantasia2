@@ -1,5 +1,5 @@
 # Plantasia2
-An interpreter in Rust for a more advanced version of my language Plantasia. It can be run with `cargo run (source file)`, and you can perform tests using `cargo test`
+An interpreter in Rust for a more advanced version of my language Plantasia. It can be run with `cargo run (source file) (args)`, and you can perform tests using `cargo test`
 
 ## How it works.
 ### The basics
@@ -26,7 +26,7 @@ Some other things:\
 `.` is the return instruction that returns its entire stack.\
 `$` is the input stack that can be specified while running the interpreter.\
 `_` is a character that gets ignored by the lexer so you can use it for readability purposes.\
-';' is for comments it looks bad but // and # felt weird
+`;` is for comments it looks bad but // and # felt weird
 
 ### Control flow
 
